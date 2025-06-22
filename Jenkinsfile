@@ -1,46 +1,23 @@
 pipeline {
     agent any
 
-    environment {
-        SLACK_WEBHOOK = credentials('slack-webhook')  // Your stored Slack webhook ID
-    }
-
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/TSolutions3A/moonsky.git' // Replace with your repo URL
+                checkout scm
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Building the project (no build needed for static HTML)'
-                // If you want, add validation commands here
+                echo 'No build needed for static HTML.'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Simulating deployment (add your deploy steps here)'
-                // e.g. copy files to web server or deploy to Vercel
+                echo 'Deploy your static site here (e.g., Vercel CLI commands).'
             }
-        }
-    }
-
-    post {
-        success {
-            slackSend (
-                webhookUrl: SLACK_WEBHOOK,
-                color: 'good',
-                message: "✅ Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}"
-            )
-        }
-        failure {
-            slackSend (
-                webhookUrl: SLACK_WEBHOOK,
-                color: 'danger',
-                message: "❌ Build Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}"
-            )
         }
     }
 }
