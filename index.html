@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sample HTML Project</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    header h1 {
+        color: #333;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+</style>
+<body>
+    <header>
+        <h1>Welcome to Sample HTML Project</h1>
+    </header>
+
+    <main>
+        <p>This is a sample HTML page to test Jenkins pipeline deployment.</p>
+        <button id="alertBtn">Click Me</button>
+    </main>
+
+    <script>
+
+        document.getElementById('alertBtn').addEventListener('click', function() {
+            alert('Button clicked!');
+        });
+
+    </script>
+</body>
+</html>
